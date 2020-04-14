@@ -29,6 +29,9 @@ import { AppContextProvider } from './data/AppContext';
 import { loadConfData } from './data/sessions/sessions.actions';
 import { setIsLoggedIn, setUsername, loadUserData } from './data/user/user.actions';
 import Account from './pages/Account';
+import Profile from './pages/Profile';
+import Friends from './pages/Friends';
+import PaymentMethods from './pages/PaymentMethods';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Support from './pages/Support';
@@ -77,6 +80,9 @@ const IonicApp: React.FC<IonicAppProps> = ({ darkMode, schedule, setIsLoggedIn, 
               <IonRouterOutlet id="main">
                 <Route path="/tabs" component={MainTabs} />
                 <Route path="/account" component={Account} />
+                <Route path="/profile" component={Profile} />
+                <Route path="/friends" component={Friends} />
+                <Route path="/paymentMethods" component={PaymentMethods} />
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={Signup} />
                 <Route path="/support" component={Support} />

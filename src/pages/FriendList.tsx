@@ -1,25 +1,25 @@
 import React from 'react';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonGrid, IonRow, IonCol } from '@ionic/react';
-import SpeakerItem from '../components/SpeakerItem';
-import { Speaker } from '../models/Speaker';
+import FriendItem from '../components/FriendItem';
+import { Friend } from '../models/Friend';
 import { connect } from '../data/connect';
 import * as selectors from '../data/selectors';
-import './SpeakerList.scss';
+import './FriendList.scss';
 
 interface OwnProps { };
 
 interface StateProps {
-  speakers: Speaker[];
+  friends: Friend;
 };
 
 interface DispatchProps { };
 
-interface SpeakerListProps extends OwnProps, StateProps, DispatchProps { };
+interface FriendListProps extends OwnProps, StateProps, DispatchProps { };
 
-const SpeakerList: React.FC<SpeakerListProps> = ({ speakers }) => {
+const FriendList: React.FC<FriendListProps> = ({ friends }) => {
 
   return (
-    <IonPage id="speaker-list">
+    <IonPage id="friend-list">
       <IonHeader translucent={true}>
         <IonToolbar>
           <IonButtons slot="start">
@@ -38,11 +38,11 @@ const SpeakerList: React.FC<SpeakerListProps> = ({ speakers }) => {
 
           <IonGrid fixed>
             <IonRow>
-              {speakers.map(speaker => (
-                <IonCol size="12" size-md="6" key={speaker.id}>
-                  <SpeakerItem
-                    key={speaker.id}
-                    speaker={speaker}
+              {friends.map(friend => (
+                <IonCol size="12" size-md="6" key={friend.id}>
+                  <FriendItem
+                    key={friend.id}
+                    friend={friend}
                   />
                 </IonCol>
               ))}
@@ -55,7 +55,7 @@ const SpeakerList: React.FC<SpeakerListProps> = ({ speakers }) => {
 
 export default connect<OwnProps, StateProps, DispatchProps>({
   mapStateToProps: (state) => ({
-    speakers: selectors.getSpeakers(state)
+    friends: selectors.getFriends(state)
   }),
-  component: React.memo(SpeakerList)
+  component: React.memo(FriendList)
 });

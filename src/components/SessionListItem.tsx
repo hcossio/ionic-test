@@ -56,11 +56,9 @@ const SessionListItem: React.FC<SessionListItemProps> = ({ isFavorite, onAddFavo
     <IonItemSliding ref={ionItemSlidingRef} class={'track-' + session.tracks[0].toLowerCase()}>
       <IonItem routerLink={`/tabs/schedule/${session.id}`}>
         <IonLabel>
-          <h3>{session.name}</h3>
+          <h3>{session.timeStart}&mdash;{session.timeEnd}</h3>
           <p>
-            {session.timeStart}&mdash;&nbsp;
-            {session.timeStart}&mdash;&nbsp;
-            {session.location}
+          {session.name}
           </p>
         </IonLabel>
       </IonItem>

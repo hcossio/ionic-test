@@ -6,6 +6,7 @@ const getSchedule = (state: AppState) => {
 
   return state.data.schedule
 };
+
 export const getSpeakers = (state: AppState) => state.data.speakers;
 const getSessions = (state: AppState) => state.data.sessions;
 const getFilteredTracks = (state: AppState) => state.data.filteredTracks;
@@ -50,7 +51,7 @@ export const getSearchedSchedule = createSelector(
     const groups: ScheduleGroup[] = [];
     schedule.groups.forEach(group => {
 
-      const sessions = group.sessions.filter(s => s.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1)
+      const sessions = group.sessions.filter(s => s.location.toLowerCase().indexOf(searchText.toLowerCase()) > -1)
       if (sessions.length) {
         const groupToAdd: ScheduleGroup = {
           time: group.time,
@@ -91,7 +92,6 @@ export const getGroupedFavorites = createSelector(
     } as Schedule;
   }
 );
-
 
 const getIdParam = (_state: AppState, props: any) => {
   return props.match.params['id'];

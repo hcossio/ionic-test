@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonList, IonItem, IonAlert } from '@ionic/react';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonList, IonItem, IonAlert, IonLabel, IonNote, IonIcon } from '@ionic/react';
 import './Account.scss';
 import { setUsername } from '../data/user/user.actions';
 import { connect } from '../data/connect';
 import { RouteComponentProps } from 'react-router';
+import { Speaker } from '../models/Speaker';
+import { star } from 'ionicons/icons';
 
 interface OwnProps extends RouteComponentProps { }
 
@@ -38,12 +40,22 @@ const Account: React.FC<AccountProps> = ({ setUsername, username }) => {
       <IonContent>
         {username &&
           (<div className="ion-padding-top ion-text-center">
-            <img src="https://www.gravatar.com/avatar?d=mm&s=140" alt="avatar" />
+            <img src="/assets/img/speakers/humbis.jpg" alt="avatar" />
             <h2>{ username }</h2>
+            <IonIcon slot="start" icon={star}/>
+            <IonIcon slot="start" icon={star}/>
+            <IonIcon slot="start" icon={star}/>
+            <IonIcon slot="start" icon={star}/>
+            <IonIcon slot="start" icon={star}/>
             <IonList inset>
-              <IonItem onClick={() => clicked('Update Picture')}>Update Picture</IonItem>
-              <IonItem onClick={() => setShowAlert(true)}>Change Username</IonItem>
-              <IonItem onClick={() => clicked('Change Password')}>Change Password</IonItem>
+            <IonItem>
+          <IonLabel>Yo Juego Coins:</IonLabel>
+          <IonNote slot="end" color="primary">RD$2,500.00</IonNote>
+        </IonItem>
+              <IonItem routerLink="/profile" routerDirection="none">Profile</IonItem>
+              <IonItem routerLink="/tabs/schedule" routerDirection="none">Reservations</IonItem>
+              <IonItem routerLink="/friends" routerDirection="none">Friend List</IonItem>
+              <IonItem routerLink="/paymentMethods" routerDirection="none">Payment Methods</IonItem>
               <IonItem routerLink="/support" routerDirection="none">Support</IonItem>
               <IonItem routerLink="/logout" routerDirection="none">Logout</IonItem>
             </IonList>
