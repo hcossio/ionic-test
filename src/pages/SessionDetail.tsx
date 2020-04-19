@@ -72,7 +72,7 @@ const SessionDetail: React.FC<SessionDetailProps> = ({ session, addFavorite, rem
           </IonText>
         </div>
         <IonList>
-          <IonItem onClick={() => sessionClick('book')} button>
+          <IonItem routerLink="/booking" routerDirection="none">
             <IonLabel color="primary">Book</IonLabel>
           </IonItem>
           <IonItem onClick={() => sessionClick('invite')} button>
