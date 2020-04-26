@@ -32,6 +32,7 @@ import Account from './pages/Account';
 import Profile from './pages/Profile';
 import Friends from './pages/Friends';
 import PaymentMethods from './pages/PaymentMethods';
+import Payment from './pages/Payment';
 import Booking from './pages/Booking';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -84,7 +85,8 @@ const IonicApp: React.FC<IonicAppProps> = ({ darkMode, schedule, setIsLoggedIn, 
                 <Route path="/profile" component={Profile} />
                 <Route path="/friends" component={Friends} />
                 <Route path="/paymentMethods" component={PaymentMethods} />
-                <Route path="/Booking" component={Booking} />
+                <Route path="/booking" component={Booking} />
+                <Route path="/payment" component={Payment} />
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={Signup} />
                 <Route path="/support" component={Support} />
