@@ -31,6 +31,8 @@ import { setIsLoggedIn, setUsername, loadUserData } from './data/user/user.actio
 import Account from './pages/Account';
 import Profile from './pages/Profile';
 import Friends from './pages/Friends';
+import LoginPage from './pages/LoginPage';
+import Register from './pages/Register';
 import PaymentMethods from './pages/PaymentMethods';
 import Payment from './pages/Payment';
 import Booking from './pages/Booking';
@@ -86,6 +88,8 @@ const IonicApp: React.FC<IonicAppProps> = ({ darkMode, schedule, setIsLoggedIn, 
                 <Route path="/friends" component={Friends} />
                 <Route path="/paymentMethods" component={PaymentMethods} />
                 <Route path="/booking" component={Booking} />
+                <Route path="/loginPage" component={LoginPage} />
+                <Route path="/register" component={Register} />
                 <Route path="/payment" component={Payment} />
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={Signup} />

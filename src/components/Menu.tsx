@@ -22,9 +22,9 @@ const routes = {
     { title: 'Logout', path: '/logout', icon: logOut }
   ],
   loggedOutPages: [
-    { title: 'Login', path: '/login', icon: logIn },
+    { title: 'Login', path: '/loginPage', icon: logIn },
     { title: 'Support', path: '/support', icon: help },
-    { title: 'Signup', path: '/signup', icon: personAdd }
+    { title: 'Register', path: '/register', icon: personAdd }
   ]
 };
 
