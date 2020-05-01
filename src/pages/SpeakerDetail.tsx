@@ -4,8 +4,8 @@ import { RouteComponentProps } from 'react-router';
 import './SpeakerDetail.scss';
 
 import { ActionSheetButton } from '@ionic/core';
-import { IonActionSheet, IonChip, IonIcon, IonHeader, IonLabel, IonToolbar, IonButtons, IonContent, IonButton, IonBackButton, IonPage } from '@ionic/react'
-import { callOutline, callSharp, logoTwitter, logoGithub, logoInstagram, shareOutline, shareSharp } from 'ionicons/icons';
+import { IonActionSheet, IonIcon, IonHeader, IonLabel, IonToolbar, IonButtons, IonContent, IonButton, IonBackButton, IonPage, IonGrid, IonRow, IonCol } from '@ionic/react'
+import { callOutline, callSharp, shareOutline, shareSharp } from 'ionicons/icons';
 
 import { connect } from '../data/connect';
 import * as selectors from '../data/selectors';
@@ -106,24 +106,21 @@ const SpeakerDetail: React.FC<SpeakerDetailProps> = ({ speaker }) => {
         </div>
 
         <div className="ion-padding speaker-detail">
-          <p>{speaker.about} Say hello on social media!</p>
+          <p>{speaker.about}</p>
+          <br></br>
 
-          <hr/>
-
-          <IonChip color="twitter" onClick={() => openExternalUrl(`https://twitter.com/${speaker.twitter}`)}>
-            <IonIcon icon={logoTwitter}></IonIcon>
-            <IonLabel>Twitter</IonLabel>
-          </IonChip>
-
-          <IonChip color="dark" onClick={() => openExternalUrl('https://github.com/ionic-team/ionic')}>
-            <IonIcon icon={logoGithub}></IonIcon>
-            <IonLabel>GitHub</IonLabel>
-          </IonChip>
-
-          <IonChip color="instagram" onClick={() => openExternalUrl('https://instagram.com/ionicframework')}>
-            <IonIcon icon={logoInstagram}></IonIcon>
-            <IonLabel>Instagram</IonLabel>
-          </IonChip>
+        <IonGrid>
+          <IonRow className="speaker-button">
+          <IonCol><IonButton expand="block">5x5</IonButton></IonCol>
+          </IonRow>
+          <IonRow className="speaker-button">
+          <IonCol><IonButton expand="block">7x7</IonButton></IonCol>
+          </IonRow>
+          <IonRow className="speaker-button">
+          <IonCol><IonButton expand="block">11x11</IonButton></IonCol>
+      </IonRow>
+        </IonGrid>
+        
         </div>
       </IonContent>
       <IonActionSheet

@@ -48,10 +48,10 @@ const SessionListFilter: React.FC<SessionListFilterProps> = ({ allTracks, filter
     'Documentation': document,
     'Food': restaurant,
     'Ionic': logoIonic,
-    'Tooling': hammer,
+    '11x11': hammer,
     'Design': colorPalette,
-    'Services': cog,
-    'Workshop': construct,
+    '5x5': cog,
+    '7x7': construct,
     'Navigation': compass,
     'Communication': call
   }
