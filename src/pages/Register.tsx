@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react'
 import { Link } from 'react-router-dom'
+import { setIsLoggedIn, setUsername } from '../data/user/user.actions';
 import { toast } from '../toast'
+import { connect } from '../data/connect';
+import { RouteComponentProps } from 'react-router';
 import { registerUser } from '../firebaseConfig'
 
-const Register: React.FC = () => {
+interface OwnProps extends RouteComponentProps {}
+
+interface DispatchProps {
+  setIsLoggedIn: typeof setIsLoggedIn;
+  setUsername: typeof setUsername;
+}
+
+interface RegisterProps extends OwnProps,  DispatchProps { }
+
+const Register: React.FC<RegisterProps> = ({setIsLoggedIn, history, setUsername: setUsernameAction}) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [cpassword, setCPassword] = useState('')
@@ -15,12 +27,15 @@ const Register: React.FC = () => {
             return toast('Passwords do not match')
         }
         if(username.trim() === '' || password.trim() === '') {
-            return toast('Username and password are required')
+            return toast('Username and password are required',4000)
         }
 
         const res = await registerUser(username, password)
         if (res) {
             toast('Registration successful')
+            await setIsLoggedIn(true);
+            await setUsernameAction(username);
+            history.push('/tabs/schedule', {direction: 'none'});
         }
     }
 
@@ -66,4 +81,10 @@ const Register: React.FC = () => {
     )
 }
 
-export default Register
+export default connect<OwnProps, {}, DispatchProps>({
+  mapDispatchToProps: {
+    setIsLoggedIn,
+    setUsername
+  },
+  component: Register
+})
