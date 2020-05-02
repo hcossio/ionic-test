@@ -32,7 +32,7 @@ class Reserve extends Component {
       <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>CardExamples</IonTitle>
+          <IonTitle>Booking</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -40,15 +40,21 @@ class Reserve extends Component {
           <IonItem>
           <SeatList title="Seats">
           {this.state.seatrows.map((row, index) =>
+          
             <SeatRow
               seats={row.seats}
               key={index}
             />
           )}
         </SeatList>
-        <hr />
+        </IonItem>
+        </IonCard>
+        <IonCard>
+        <IonItem>
         <Cart />
-          </IonItem>
+        </IonItem>
+        
+          
         </IonCard>
       </IonContent>
     </IonPage>
