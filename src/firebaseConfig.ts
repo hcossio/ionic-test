@@ -11,7 +11,8 @@ const config = {
     appId: "1:922472922500:web:4365e1915746e82c5171d1"
   }
 
-firebase.initializeApp(config)
+  var fire = firebase.initializeApp(config);
+  export default fire;
 
 export async function loginUser(username: string, password: string) {
     const email = `${username}@yojuego.do`

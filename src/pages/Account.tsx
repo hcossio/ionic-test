@@ -56,7 +56,7 @@ const Account: React.FC<AccountProps> = ({ setUsername, username }) => {
               <IonItem routerLink="/tabs/schedule" routerDirection="none">Reservations</IonItem>
               <IonItem routerLink="/friends" routerDirection="none">Friend List</IonItem>
               <IonItem routerLink="/paymentMethods" routerDirection="none">Payment Methods</IonItem>
-              <IonItem routerLink="/support" routerDirection="none">Support</IonItem>
+              <IonItem routerLink="/AppApp" routerDirection="none">Support</IonItem>
               <IonItem routerLink="/logout" routerDirection="none">Logout</IonItem>
             </IonList>
           </div>)
