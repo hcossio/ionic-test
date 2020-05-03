@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import { Switch, Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+
+import PrivateRoute from "./components/PrivateRoute";
+import Todos from "./routes/Todos";
+import SignIn from "./routes/SignIn";
 
 import Menu from './components/Menu';
 
