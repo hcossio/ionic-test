@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
 import { render } from 'react-dom'
 import { createStore, applyMiddleware } from 'redux'
 import SeatBookingApp from './containers/SeatBookingApp'
@@ -26,7 +25,7 @@ store.dispatch(getAllSeats())
 
 render(
     <Provider store={store}>
-        <SeatBookingApp />
+        <App/>
     </Provider>,
     document.getElementById('root')
 )

@@ -4,7 +4,6 @@ import './Friends.scss';
 import { setUsername } from '../data/user/user.actions';
 import { connect } from '../data/connect';
 import { RouteComponentProps } from 'react-router';
-import Reserve from './Reserve';
 import SeatList from '../components/SeatList';
 import SeatRow from '../components/SeatRow';
 

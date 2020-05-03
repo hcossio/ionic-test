@@ -1,70 +1,31 @@
-import React, { Component } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonItem, IonIcon, IonLabel, IonButton } from '@ionic/react';
-import { pin, wifi, wine, warning, walk } from 'ionicons/icons';
-import './Reserve.css';
-import SeatList from '../components/SeatList';
-import Cart from '../components/Cart';
-import { getSeats } from '../api/service';
-import SeatRow from '../components/SeatRow';
-
-class Reserve extends Component {
-  constructor() {
-    super();
-    this.state = {
-      seatrows: [],
-    }
-  }
-
-  componentDidMount() {
-    let _this = this;
-    getSeats().then(function (list) {
-      console.log(list);
-      _this.setState({
-        seatrows: list,
-      });
-    });
-
-  }
-
-  render() {
-    return (
-
-      <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Booking</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-      <IonCard>
-          <IonItem>
-          <SeatList title="Seats">
-          {this.state.seatrows.map((row, index) =>
-          
-            <SeatRow
-              seats={row.seats}
-              key={index}
-            />
-          )}
-        </SeatList>
-        </IonItem>
-        </IonCard>
-        <IonCard>
-        <IonItem>
-        <Cart />
-        </IonItem>
-        
-          
-        </IonCard>
-      </IonContent>
-    </IonPage>
-    
-
-      
-    )
+import React from 'react'
+import ReactDOM from 'react-dom';
+import { render } from 'react-dom'
+import { createStore, applyMiddleware } from 'redux'
+import SeatBookingApp from '../containers/SeatBookingApp'
+import { Provider } from 'react-redux'
+import { createLogger } from 'redux-logger'
+import thunk from 'redux-thunk'
+import reducer from '../reducers'
+import { getAllSeats } from '../actions'
 
 
-  }
+const middleware = [thunk];
+//middleware will print the logs for state changes
+if (process.env.NODE_ENV !== 'production') {
+    middleware.push(createLogger());
 }
 
-export default Reserve;
+const store = createStore(
+    reducer,
+    applyMiddleware(...middleware)
+)
+
+store.dispatch(getAllSeats())
+
+render(
+    <Provider store={store}>
+        <SeatBookingApp />
+    </Provider>,
+    document.getElementById('root')
+)

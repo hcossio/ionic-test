@@ -37,13 +37,15 @@ import PaymentMethods from './pages/PaymentMethods';
 import Payment from './pages/Payment';
 import Booking from './pages/Booking';
 import Login from './pages/Login';
-import Reserve from './pages/Reserve';
+/*import Reserve from './pages/Reserve';*/
 import BookReserve from './pages/BookReserve';
 import Signup from './pages/Signup';
 import Support from './pages/Support';
 import Tutorial from './pages/Tutorial';
 import HomeOrTutorial from './components/HomeOrTutorial';
 import { Schedule } from "./models/Schedule";
+import SeatBookingApp from './containers/SeatBookingApp';
+
 
 const App: React.FC = () => {
   return (
@@ -94,7 +96,7 @@ const IonicApp: React.FC<IonicAppProps> = ({ darkMode, schedule, setIsLoggedIn, 
                 <Route path="/register" component={Register} />
                 <Route path="/payment" component={Payment} />
                 <Route path="/login" component={Login} />
-                <Route path="/reserve" component={Reserve} />
+                <Route path="/seatbookingapp" component={SeatBookingApp} />
                 <Route path="/bookreserve" component={BookReserve} />
                 <Route path="/signup" component={Signup} />
                 <Route path="/support" component={Support} />
